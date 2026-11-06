@@ -1,5 +1,7 @@
 # dlr-slot-watcher
 
+> Privates Hobbyprojekt, nicht mit dem DLR, der European Flight Academy oder der Lufthansa Group verbunden.
+
 Überwacht die Buchungsseite für den DLR-Test der European Flight Academy und schickt eine Push-Nachricht über [ntfy](https://ntfy.sh), sobald ein Termin buchbar wird.
 
 Seite: <https://www.lufthansa-aviation-training.com/web/european-flight-academy/anmeldung-dlr-test>
@@ -32,7 +34,7 @@ Beim allerersten Lauf wird der Stand nur gespeichert. Eine Nachricht kommt dann 
 
 Die Angebote stehen nicht im HTML der Seite. Die Seite bindet ein Buchungs-Widget von bookingkit ein, das seine Inhalte nachlädt. Das Skript ruft dieselben Adressen ab wie das Widget im Browser. Ein Browser ist dafür nicht nötig, `requests` und `BeautifulSoup` reichen.
 
-Pro Lauf sind das im Normalfall 6 Abrufe mit einer Sekunde Pause dazwischen, mit normalem Browser-User-Agent, Timeout und höchstens einem zweiten Versuch.
+Pro Lauf sind das im Normalfall 6 Abrufe mit einer Sekunde Pause dazwischen, mit einer ehrlichen Kennung (`dlr-slot-watcher/1.0`) statt eines Browser-User-Agents, Timeout und höchstens einem zweiten Versuch.
 
 ## Für dich selbst einrichten
 

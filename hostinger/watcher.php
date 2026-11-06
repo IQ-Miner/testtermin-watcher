@@ -25,7 +25,8 @@ if (PHP_SAPI !== 'cli' && isset($_SERVER['REQUEST_METHOD'])) {
 
 const PAGE_URL = 'https://www.lufthansa-aviation-training.com/web/european-flight-academy/anmeldung-dlr-test';
 const DEFAULT_BASE = 'https://eu5.bookingkit.de';
-const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36';
+// Ehrliche Kennung statt Browser-Tarnung (06.11.2026): privates Hobbyprojekt, liest nur die öffentliche Buchungsseite.
+const USER_AGENT = 'dlr-slot-watcher/1.0 (privates Hobbyprojekt; https://github.com/IQ-Miner/dlr-slot-watcher)';
 const CONNECT_TIMEOUT = 10;      // Sekunden
 const TIMEOUT = 25;              // Sekunden
 const RETRY_WAIT = 5;            // Sekunden vor dem einzigen zweiten Versuch
