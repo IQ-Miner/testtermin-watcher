@@ -1,4 +1,4 @@
-# dlr-slot-watcher
+# testtermin-watcher
 
 > Privates Hobbyprojekt, nicht mit dem DLR, der European Flight Academy oder der Lufthansa Group verbunden.
 
@@ -34,7 +34,7 @@ Beim allerersten Lauf wird der Stand nur gespeichert. Eine Nachricht kommt dann 
 
 Die Angebote stehen nicht im HTML der Seite. Die Seite bindet ein Buchungs-Widget von bookingkit ein, das seine Inhalte nachlädt. Das Skript ruft dieselben Adressen ab wie das Widget im Browser. Ein Browser ist dafür nicht nötig, `requests` und `BeautifulSoup` reichen.
 
-Pro Lauf sind das im Normalfall 6 Abrufe mit einer Sekunde Pause dazwischen, mit einer ehrlichen Kennung (`dlr-slot-watcher/1.0`) statt eines Browser-User-Agents, Timeout und höchstens einem zweiten Versuch.
+Pro Lauf sind das im Normalfall 6 Abrufe mit einer Sekunde Pause dazwischen, mit einer ehrlichen Kennung (`testtermin-watcher/1.0`) statt eines Browser-User-Agents, Timeout und höchstens einem zweiten Versuch.
 
 ## Für dich selbst einrichten
 
@@ -77,7 +77,7 @@ Danach das Topic eintippen und mit Enter bestätigen.
 
 ### 2. Testen
 
-Unter **Actions**, **DLR-Slot-Watcher**, **Run workflow** den Haken bei "Nur eine Testnachricht" setzen. Dann kommt nur eine Testnachricht, die Seite wird nicht geprüft.
+Unter **Actions**, **Testtermin-Watcher**, **Run workflow** den Haken bei "Nur eine Testnachricht" setzen. Dann kommt nur eine Testnachricht, die Seite wird nicht geprüft.
 
 Mit der CLI:
 
@@ -93,7 +93,7 @@ gh workflow run watcher.yml
 
 ## Pausieren
 
-Im Browser: **Actions**, links **DLR-Slot-Watcher**, oben rechts das Menü mit den drei Punkten, **Disable workflow**. Zum Fortsetzen an derselben Stelle **Enable workflow**.
+Im Browser: **Actions**, links **Testtermin-Watcher**, oben rechts das Menü mit den drei Punkten, **Disable workflow**. Zum Fortsetzen an derselben Stelle **Enable workflow**.
 
 Mit der CLI:
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * DLR-Slot-Watcher, PHP-Version für einen Cronjob auf dem eigenen Webspace.
+ * Testtermin-Watcher, PHP-Version für einen Cronjob auf dem eigenen Webspace.
  *
  * Macht dasselbe wie watcher.py: liest Angebote, Kalender und einzelne Termine
  * aus dem bookingkit-Widget der Buchungsseite und schickt eine Push-Nachricht
@@ -26,7 +26,7 @@ if (PHP_SAPI !== 'cli' && isset($_SERVER['REQUEST_METHOD'])) {
 const PAGE_URL = 'https://www.lufthansa-aviation-training.com/web/european-flight-academy/anmeldung-dlr-test';
 const DEFAULT_BASE = 'https://eu5.bookingkit.de';
 // Ehrliche Kennung statt Browser-Tarnung (06.11.2026): privates Hobbyprojekt, liest nur die öffentliche Buchungsseite.
-const USER_AGENT = 'dlr-slot-watcher/1.0 (privates Hobbyprojekt; https://github.com/IQ-Miner/dlr-slot-watcher)';
+const USER_AGENT = 'testtermin-watcher/1.0 (privates Hobbyprojekt; https://github.com/IQ-Miner/testtermin-watcher)';
 const CONNECT_TIMEOUT = 10;      // Sekunden
 const TIMEOUT = 25;              // Sekunden
 const RETRY_WAIT = 5;            // Sekunden vor dem einzigen zweiten Versuch
@@ -632,7 +632,7 @@ function notify(string $topic, string $title, array $lines, int $priority, bool 
             CURLOPT_POSTFIELDS => $payload,
             CURLOPT_CONNECTTIMEOUT => CONNECT_TIMEOUT,
             CURLOPT_TIMEOUT => TIMEOUT,
-            CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'User-Agent: dlr-slot-watcher'],
+            CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'User-Agent: testtermin-watcher'],
         ]);
         $body = curl_exec($ch);
         $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
@@ -894,7 +894,7 @@ function main(array $argv): int
     }
 
     $now = time();
-    out('DLR-Slot-Watcher, Lauf vom ' . gmdate('d.m.Y H:i', $now) . ' UTC');
+    out('Testtermin-Watcher, Lauf vom ' . gmdate('d.m.Y H:i', $now) . ' UTC');
 
     if ($testMode) {
         try {

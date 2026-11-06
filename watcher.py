@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""DLR-Slot-Watcher.
+"""Testtermin-Watcher.
 
 Überwacht die Buchungsseite für den DLR-Test der European Flight Academy und
 schickt eine Push-Nachricht über ntfy, sobald ein Termin buchbar wird.
@@ -41,7 +41,7 @@ NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh").rstrip("/")
 STATE_FILE = Path(__file__).with_name("state.json")
 
 # Ehrliche Kennung statt Browser-Tarnung (06.11.2026): privates Hobbyprojekt, liest nur die öffentliche Buchungsseite.
-USER_AGENT = "dlr-slot-watcher/1.0 (privates Hobbyprojekt; https://github.com/IQ-Miner/dlr-slot-watcher)"
+USER_AGENT = "testtermin-watcher/1.0 (privates Hobbyprojekt; https://github.com/IQ-Miner/testtermin-watcher)"
 TIMEOUT = (10, 25)  # Sekunden: Verbindungsaufbau, Antwort
 RETRY_WAIT = 5  # Sekunden vor dem einzigen zweiten Versuch
 REQUEST_PAUSE = 1.0  # Sekunden zwischen zwei Abrufen
@@ -460,7 +460,7 @@ def notify(topic: str, title: str, lines: list, priority: int, dry_run: bool) ->
                 NTFY_SERVER,
                 json=payload,
                 timeout=TIMEOUT,
-                headers={"User-Agent": "dlr-slot-watcher"},
+                headers={"User-Agent": "testtermin-watcher"},
             )
         except requests.RequestException as exc:
             error = type(exc).__name__
@@ -535,7 +535,7 @@ def main() -> int:
         return 2
 
     now = datetime.now(timezone.utc).replace(microsecond=0)
-    log(f"DLR-Slot-Watcher, Lauf vom {now:%d.%m.%Y %H:%M} UTC")
+    log(f"Testtermin-Watcher, Lauf vom {now:%d.%m.%Y %H:%M} UTC")
 
     if test_mode:
         try:
